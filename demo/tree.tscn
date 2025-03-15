@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkapy1p5q8l2b"]
+
+[ext_resource type="Script" uid="uid://dijwyhmgcjv6" path="res://addons/dynamic_audio_effects/base/dfx_2d.gd" id="1_a8bf7"]
+[ext_resource type="Script" uid="uid://dtneyen8fr317" path="res://addons/dynamic_audio_effects/fx/dfx_distortion.gd" id="2_csmac"]
+[ext_resource type="Script" uid="uid://bof8y2l5rwn2s" path="res://addons/dynamic_audio_effects/fx/dfx_amplify.gd" id="3_lbma1"]
+
+[sub_resource type="Gradient" id="Gradient_6dquj"]
+offsets = PackedFloat32Array(0.741611, 1)
+colors = PackedColorArray(0.0155, 0.31, 0, 1, 0.0155, 0.31, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a8bf7"]
+gradient = SubResource("Gradient_6dquj")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.15, 0.15)
+
+[node name="Tree" type="Sprite2D"]
+texture = SubResource("GradientTexture2D_a8bf7")
+
+[node name="DFX2D" type="Node2D" parent="."]
+script = ExtResource("1_a8bf7")
+metadata/_custom_type_script = "uid://dijwyhmgcjv6"
+
+[node name="DFXDistortion" type="Node" parent="DFX2D"]
+script = ExtResource("2_csmac")
+bus = "Music"
+effect_position = 2
+_effect_kwargs = {
+&"drive": 0.49,
+&"keep_hf_hz": 16000.0,
+&"mode": 0,
+&"post_gain": -12.0,
+&"pre_gain": 0.0
+}
+metadata/_custom_type_script = "uid://dtneyen8fr317"
+
+[node name="DFXAmplify" type="Node" parent="DFX2D"]
+script = ExtResource("3_lbma1")
+bus = "Sound Effects"
+_effect_kwargs = {
+&"volume_db": -32.0
+}
+metadata/_custom_type_script = "uid://bof8y2l5rwn2s"

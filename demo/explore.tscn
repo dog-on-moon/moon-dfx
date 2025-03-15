@@ -1,0 +1,147 @@
+[gd_scene load_steps=11 format=3 uid="uid://cr8bfwj4tedrd"]
+
+[ext_resource type="Script" uid="uid://1npbbqckafg" path="res://demo/character_body_2d.gd" id="1_g20s5"]
+[ext_resource type="Texture2D" uid="uid://bgd8bd1rd8n5k" path="res://icon.svg" id="1_mucsc"]
+[ext_resource type="AudioStream" uid="uid://tks0i6nd0vry" path="res://demo/heavy_move_sound.mp3" id="3_whcsl"]
+[ext_resource type="PackedScene" uid="uid://dkapy1p5q8l2b" path="res://demo/tree.tscn" id="3_y5n8m"]
+[ext_resource type="PackedScene" uid="uid://dl0dlsm0g4lme" path="res://demo/fire.tscn" id="4_d3jwd"]
+[ext_resource type="AudioStream" uid="uid://dgbgyfhx6cjtf" path="res://demo/forest.wav" id="8_m6dfq"]
+[ext_resource type="Script" uid="uid://dqdvlwknplnxi" path="res://addons/dynamic_audio_effects/fx/dfx_reverb.gd" id="10_1fs4d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g20s5"]
+size = Vector2(128, 128)
+
+[sub_resource type="Shader" id="Shader_whcsl"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+
+void fragment() {
+	float gs = (COLOR.r + COLOR.g + COLOR.b) * 0.33;
+	COLOR.rgb = vec3(gs, gs, gs);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m6dfq"]
+shader = SubResource("Shader_whcsl")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+motion_mode = 1
+script = ExtResource("1_g20s5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_g20s5")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+material = SubResource("ShaderMaterial_m6dfq")
+texture = ExtResource("1_mucsc")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(0.75, 0.75)
+
+[node name="MoveSFX" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("3_whcsl")
+volume_db = -12.0
+bus = &"Sound Effects"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07826, 0.0028, 0.14, 1)
+
+[node name="Trees" type="Node2D" parent="."]
+
+[node name="Tree2" parent="Trees" instance=ExtResource("3_y5n8m")]
+position = Vector2(807, -398)
+
+[node name="Tree3" parent="Trees" instance=ExtResource("3_y5n8m")]
+position = Vector2(-242, -517)
+
+[node name="Tree4" parent="Trees" instance=ExtResource("3_y5n8m")]
+position = Vector2(-812, 353)
+
+[node name="Tree5" parent="Trees" instance=ExtResource("3_y5n8m")]
+position = Vector2(-18, 866)
+
+[node name="Tree6" parent="Trees" instance=ExtResource("3_y5n8m")]
+position = Vector2(479, -881)
+
+[node name="Tree7" parent="Trees" instance=ExtResource("3_y5n8m")]
+position = Vector2(-1063, -946)
+
+[node name="Tree8" parent="Trees" instance=ExtResource("3_y5n8m")]
+position = Vector2(-1621, -92)
+
+[node name="Tree9" parent="Trees" instance=ExtResource("3_y5n8m")]
+position = Vector2(-1158, 1097)
+
+[node name="Tree10" parent="Trees" instance=ExtResource("3_y5n8m")]
+position = Vector2(-34, 1640)
+
+[node name="Tree11" parent="Trees" instance=ExtResource("3_y5n8m")]
+position = Vector2(1320, 1144)
+
+[node name="Tree12" parent="Trees" instance=ExtResource("3_y5n8m")]
+position = Vector2(1749, 315)
+
+[node name="Tree13" parent="Trees" instance=ExtResource("3_y5n8m")]
+position = Vector2(1660, -721)
+
+[node name="Tree14" parent="Trees" instance=ExtResource("3_y5n8m")]
+position = Vector2(957, -1750)
+
+[node name="Tree15" parent="Trees" instance=ExtResource("3_y5n8m")]
+position = Vector2(-360, -1624)
+
+[node name="Fires" type="Node2D" parent="."]
+
+[node name="Fire2" parent="Fires" instance=ExtResource("4_d3jwd")]
+position = Vector2(-546, 1169)
+
+[node name="Fire3" parent="Fires" instance=ExtResource("4_d3jwd")]
+position = Vector2(834, 815)
+
+[node name="Fire4" parent="Fires" instance=ExtResource("4_d3jwd")]
+position = Vector2(1319, -155)
+
+[node name="Fire5" parent="Fires" instance=ExtResource("4_d3jwd")]
+position = Vector2(369, -1520)
+
+[node name="Tree1" parent="." instance=ExtResource("3_y5n8m")]
+position = Vector2(450, 206)
+
+[node name="Fire1" parent="." instance=ExtResource("4_d3jwd")]
+position = Vector2(-960, -469)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_m6dfq")
+volume_db = -6.0
+autoplay = true
+bus = &"Music"
+
+[node name="DFXReverb" type="Node" parent="."]
+script = ExtResource("10_1fs4d")
+bus = "Music"
+_effect_kwargs = {
+&"damping": 0.12,
+&"dry": 1.0,
+&"hipass": 0.33,
+&"predelay_feedback": 0.67,
+&"predelay_msec": 158.0,
+&"room_size": 0.84,
+&"spread": 0.73,
+&"wet": 0.21
+}
+metadata/_custom_type_script = "uid://dqdvlwknplnxi"
+
+[editable path="Tree1"]
+[editable path="Fire1"]

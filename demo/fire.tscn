@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl0dlsm0g4lme"]
+
+[ext_resource type="Script" uid="uid://dijwyhmgcjv6" path="res://addons/dynamic_audio_effects/base/dfx_2d.gd" id="1_gsv73"]
+[ext_resource type="Script" uid="uid://cn8ec2j4bgxlb" path="res://addons/dynamic_audio_effects/fx/dfx_pitch_shift.gd" id="2_l8we5"]
+
+[sub_resource type="Gradient" id="Gradient_53la0"]
+offsets = PackedFloat32Array(0, 0.399329, 0.721476, 1)
+colors = PackedColorArray(0.702, 0.78, 0, 1, 0.78, 0.481, 0, 1, 0.78, 0.143, 0, 1, 0.78, 0, 0.325, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gsv73"]
+gradient = SubResource("Gradient_53la0")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.15, 0.15)
+
+[node name="Fire1" type="Sprite2D"]
+texture = SubResource("GradientTexture2D_gsv73")
+
+[node name="DFX2D" type="Node2D" parent="."]
+script = ExtResource("1_gsv73")
+metadata/_custom_type_script = "uid://dijwyhmgcjv6"
+
+[node name="DFXPitchShift" type="Node" parent="DFX2D"]
+script = ExtResource("2_l8we5")
+bus = "Sound Effects"
+_effect_kwargs = {
+&"fft_size": 3,
+&"oversampling": 4,
+&"pitch_scale": 0.25
+}
+metadata/_custom_type_script = "uid://cn8ec2j4bgxlb"
