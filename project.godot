@@ -14,7 +14,7 @@ config/name="Dynamic Audio Effects"
 config/description="A plugin for nodes that dynamically control audio effects."
 run/main_scene="uid://cr8bfwj4tedrd"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://b1otaxywelym"
 
 [editor_plugins]
 
