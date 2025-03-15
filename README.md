@@ -8,7 +8,7 @@
 - Easy way to define audio spaces on a scene-by-scene basis
 - 2D and 3D DFX nodes, which mix audio effects depending on visual distance to target or camera
 
-![video](https://github.com/dog-on-moon/godot-dynamic-audio-fx/blob/main/docs/demo.mp4)
+https://github.com/user-attachments/assets/77a65891-3fa8-4252-825a-b64de314e934
 
 ## Installation
 
