@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgb718kb8wppc"
-path="res://.godot/imported/dfx.png-813b5a9c3d77a6770f2488f1fd47a3ba.ctex"
+path="res://.godot/imported/dfx.png-e5612fbf343edc0f733418f326d23235.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/dynamic_audio_effects/icons/dfx.png"
-dest_files=["res://.godot/imported/dfx.png-813b5a9c3d77a6770f2488f1fd47a3ba.ctex"]
+source_file="res://addons/moon-dfx/icons/dfx.png"
+dest_files=["res://.godot/imported/dfx.png-e5612fbf343edc0f733418f326d23235.ctex"]
 
 [params]
 

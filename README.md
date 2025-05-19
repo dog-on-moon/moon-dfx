@@ -1,6 +1,9 @@
-# Dynamic Audio FX
+![screen-shot](https://github.com/dog-on-moon/moon-dfx/blob/main/readme/banner.png)
 
-**Dynamic Audio FX** is a small library of dynamic AudioEffect nodes for Godot 4.4. When added to the scene tree, they automatically create an AudioEffect for an associated bus, and deallocate it upon exiting the tree.
+# 🌙 moon-dfx - see more: [moonSuite](https://dog-game.xyz/tools/)
+
+moon-dfx is a library of dynamic AudioEffect nodes for Godot 4.4.
+When added to the scene tree, they automatically create an AudioEffect for an associated bus, and deallocate it upon exiting the tree.
 
 ## Features
 

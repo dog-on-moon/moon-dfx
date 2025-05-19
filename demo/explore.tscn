@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dkapy1p5q8l2b" path="res://demo/tree.tscn" id="3_y5n8m"]
 [ext_resource type="PackedScene" uid="uid://dl0dlsm0g4lme" path="res://demo/fire.tscn" id="4_d3jwd"]
 [ext_resource type="AudioStream" uid="uid://dgbgyfhx6cjtf" path="res://demo/forest.wav" id="8_m6dfq"]
-[ext_resource type="Script" uid="uid://dqdvlwknplnxi" path="res://addons/dynamic_audio_effects/fx/dfx_reverb.gd" id="10_1fs4d"]
+[ext_resource type="Script" uid="uid://dqdvlwknplnxi" path="res://addons/moon-dfx/fx/dfx_reverb.gd" id="10_1fs4d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g20s5"]
 size = Vector2(128, 128)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dl0dlsm0g4lme"]
 
-[ext_resource type="Script" uid="uid://dijwyhmgcjv6" path="res://addons/dynamic_audio_effects/base/dfx_2d.gd" id="1_gsv73"]
-[ext_resource type="Script" uid="uid://cn8ec2j4bgxlb" path="res://addons/dynamic_audio_effects/fx/dfx_pitch_shift.gd" id="2_l8we5"]
+[ext_resource type="Script" uid="uid://dijwyhmgcjv6" path="res://addons/moon-dfx/base/dfx_2d.gd" id="1_gsv73"]
+[ext_resource type="Script" uid="uid://cn8ec2j4bgxlb" path="res://addons/moon-dfx/fx/dfx_pitch_shift.gd" id="2_l8we5"]
 
 [sub_resource type="Gradient" id="Gradient_53la0"]
 offsets = PackedFloat32Array(0, 0.399329, 0.721476, 1)

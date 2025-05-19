@@ -1,5 +1,5 @@
 @tool
-@icon("res://addons/dynamic_audio_effects/icons/dfx.png")
+@icon("res://addons/moon-dfx/icons/dfx.png")
 extends Node
 class_name DFXBase
 ## Base class for a dynamic audio effect.

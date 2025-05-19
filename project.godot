@@ -10,8 +10,9 @@ config_version=5
 
 [application]
 
-config/name="Dynamic Audio Effects"
+config/name="moon-dfx"
 config/description="A plugin for nodes that dynamically control audio effects."
+config/version="1.0.0"
 run/main_scene="uid://cr8bfwj4tedrd"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://b1otaxywelym"
@@ -19,6 +20,13 @@ config/icon="uid://b1otaxywelym"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dynamic_audio_effects/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "purple",
+"res://demo/": "yellow"
+}
 
 [input]
 

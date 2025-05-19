@@ -1,5 +1,5 @@
 @tool
-@icon("res://addons/dynamic_audio_effects/icons/dfx_3d.png")
+@icon("res://addons/moon-dfx/icons/dfx_3d.png")
 extends Node3D
 class_name DFX3D
 ## Mixes the strength of DFX children, based on a target's 3D distance to itself.
