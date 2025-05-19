@@ -5,7 +5,7 @@ const SPEED = 300.0
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var move_sfx: AudioStreamPlayer = $MoveSFX
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	velocity.x = Input.get_axis(&"ui_left", &"ui_right") * SPEED
 	velocity.y = Input.get_axis(&"ui_up", &"ui_down") * SPEED
 	move_and_slide()
