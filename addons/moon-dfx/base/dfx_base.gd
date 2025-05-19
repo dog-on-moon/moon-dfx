@@ -83,17 +83,23 @@ func _exit_tree() -> void:
 	_remove_fx_from_bus()
 
 func _add_fx_to_bus():
+	if not effect: return
 	var bus_idx := AudioServer.get_bus_index(bus)
+	_update_effect_mix(effect, 0.0)
 	AudioServer.add_bus_effect(bus_idx, effect, effect_position)
+	_enabled = true
+	_set_effect_enabled(false)
+	update()
 
 func _remove_fx_from_bus():
+	if not effect: return
 	var bus_idx := AudioServer.get_bus_index(bus)
 	for effect_idx in AudioServer.get_bus_effect_count(bus_idx):
 		if AudioServer.get_bus_effect(bus_idx, effect_idx) == effect:
 			AudioServer.remove_bus_effect(bus_idx, effect_idx)
 			return
 
-var _enabled := true
+var _enabled := false
 
 func _set_effect_enabled(m: bool):
 	if _enabled == m:
@@ -107,7 +113,7 @@ func _set_effect_enabled(m: bool):
 
 func _get_property_list() -> Array[Dictionary]:
 	var props: Array[Dictionary] = []
-	if not Engine.is_editor_hint():
+	if not Engine.is_editor_hint() and _effect_defaults:
 		return props
 	
 	var default_fx := _create_effect()
@@ -136,11 +142,13 @@ func _get_property_list() -> Array[Dictionary]:
 	return props
 
 func _get(property: StringName) -> Variant:
+	if not is_node_ready() and not _effect_kwargs: _get_property_list()
 	if property in _effect_kwargs:
 		return _effect_kwargs[property]
 	return null
 
 func _set(property: StringName, value: Variant) -> bool:
+	if not is_node_ready() and not _effect_kwargs: _get_property_list()
 	if property in _effect_kwargs:
 		_effect_kwargs[property] = value
 		if effect:
